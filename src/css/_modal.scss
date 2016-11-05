@@ -1,5 +1,5 @@
 .modal {
-	display:none;
+    display: none;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -8,6 +8,7 @@
     z-index: 99999;
     background: rgba(0, 0, 0, 0.7);
     .modal-dialog {
+        box-shadow: 2px 2px 20px #000000;
         min-height: 100px;
         max-width: 600px;
         margin: 30px auto;
@@ -15,49 +16,69 @@
         padding: 0 20px;
     }
     header {
-    	max-width:600px;
-    	height:50px;
-    	.title, .close {
-    		display: inline-block;
-    	}
-    	.title {
-    		width:79%;
-    	}
-    	.close {
-    		width: 19%;
-    		text-align: right;
-    		font-size:20px;
-    		text-decoration: none;
-    		color:gray;
-    		&:hover {
-    			color:grey;
-    		}
-    	}
+        max-width: 600px;
+        height: 50px;
+        .title,
+        .close {
+            display: inline-block;
+        }
+        .title {
+            width: 79%;
+        }
+        .close {
+            width: 19%;
+            text-align: right;
+            font-size: 20px;
+            text-decoration: none;
+            color: $dark-grey;
+            &:hover {
+                color: $grey;
+            }
+        }
     }
     main {
-    	padding-top:10px;
-    	padding-bottom:10px;
-    	border-top: 0.3px solid grey;
-    	border-bottom: 0.3px solid grey;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: 0.3px solid $grey;
+        border-bottom: 0.3px solid $grey;
+        .alert {
+            display: none;
+            margin: 0 20px 20px 20px;
+            span,
+            p {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .icon {
+                padding-left: 10px;
+                font-size: 60px;
+                width: 70px;
+            }
+            .description {
+                width: 80%;
+            }
+            &.danger {
+                background: lighten($error, 5%);
+                border: 3px solid $destroy;
+                .icon {
+                    color: $destroy;
+                }
+            }
+        }
     }
     footer {
-    	.btn {
-    		text-decoration: none;
-    		color:white;
-    		display:inline-block;
-    		height:20px;
-    		min-width:60px;
-    		text-align: center;
-    		border-radius:4px;
-    		vertical-align: middle;
-    		margin:10px;
-    		padding:10px;
-    		&.btn-primary {
-    			background:green;
-    		}
-    		&.btn-destroy {
-    			background:red;
-    		}
-    	}
+        .button-actions {
+            width: 100%;
+            text-align: right;
+        }
+    }
+    @include bp-sm {
+        main .alert {
+            .icon,
+            .description {
+                width: 100%;
+                text-align: center;
+            }
+        }
     }
 }

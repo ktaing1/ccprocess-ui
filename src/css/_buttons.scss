@@ -1,0 +1,36 @@
+.btn {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    height: 20px;
+    min-width: 60px;
+    text-align: center;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin: 10px;
+    padding: 10px;
+    &.btn-primary {
+        border: 1px solid darken($form-underline, 10%);
+        background: $form-underline;
+        &:hover {
+            border: 1px solid lighten($form-underline, 10%);
+            background: darken($form-underline, 10%);
+        }
+    }
+    &.btn-success {
+        background: $success;
+        border: 1px solid darken($success, 10%);
+        &:hover {
+            border: 1px solid lighten($success, 10%);
+            background: darken($success, 10%);
+        }
+    }
+    &.btn-destroy {
+        background: $destroy;
+        border: 1px solid darken($destroy, 10%);
+        &:hover {
+            border: 1px solid lighten($destroy, 10%);
+            background: darken($destroy, 10%);
+        }
+    }
+}

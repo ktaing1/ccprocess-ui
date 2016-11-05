@@ -1,0 +1,28 @@
+    /* Extra Small Devices, Phones */
+    
+    @mixin bp-xs {
+        @media only screen and (max-width: 480px) {
+            @content;
+        }
+    }
+    /* Small Devices, Tablets */
+    
+    @mixin bp-sm {
+        @media only screen and (min-width: 481px) and (max-width: 917px) {
+            @content;
+        }
+    }
+    /* Medium Devices, Desktops */
+    
+    @mixin bp-md {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+    /* Large Devices, Wide Screens */
+    
+    @mixin bp-lg {
+        @media only screen and (min-width: 1200px) {
+            @content;
+        }
+    }

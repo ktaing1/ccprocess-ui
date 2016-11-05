@@ -1,5 +1,13 @@
 $(document).ready(function() {
-    console.log("TEST");
+
+    /**
+     ** On focus in or out, handle the placeholder > label
+     ** transition.
+     ** 
+     ** If there was an error state on the input,
+     ** and now the input has changed, remove the
+     ** error underline state.
+     **/
     $("input").live("focus focusout", function() {
         $("label").each(function() {
             var $input = $(this).next();
@@ -11,41 +19,61 @@ $(document).ready(function() {
         if (!($label.hasClass("focused"))) {
             $label.addClass("focused");
         }
+        if ($(this).hasClass("error") && $(this).val() !== "") {
+            $(this).removeClass("error");
+        }
     });
 
-    //formatting
+    /**
+     ** add the visual space every 4 numbers.
+     ** determine credit card type, then show
+     ** that credit card image.
+     **/
     $("input#ccnumber").keydown(function(e) {
-    	if (($(this).val().length % 5 == 0) && $(this).val().length > 1) {
-    		$(this).val($(this).val() + " ");
-    	}
-    	$(".creditcard").removeClass("visa");
-    	$(".creditcard").removeClass("mastercard");
-    	$(".creditcard").removeClass("amex");
-    	$(".creditcard").removeClass("discover");
-    	$(".creditcard").addClass((checkCard($(this).val())))
+        var cardnumber = $(this).val();
+        if ((cardnumber.replace(/\s/g, "").length % 4 == 0) && cardnumber.replace(/\s/g, "").length > 1 && (e.keyCode !== 8)) {
+            $(this).val($(this).val() + " ");
+        }
+        $(".creditcard").removeClass("visa");
+        $(".creditcard").removeClass("mastercard");
+        $(".creditcard").removeClass("amex");
+        $(".creditcard").removeClass("discover");
+        $(".creditcard").addClass((checkCard($(this).val())))
     });
 
-    //cc type
+    $("input#expiration").keydown(function(e) {
+        var v = $(this).val();
+        if (v.match(/^\d{2}$/) !== null) {
+            $(this).val(v + '/');
+        }
+    });
+
+    /**
+     ** Pass through credit card info,
+     ** returns credit card type
+     ** if not Visa, Mastercard, Amex, or Discover
+     ** return "other" so as to not discount
+     ** other credit card vendors.
+     **/
     function checkCard(cardnumber) {
-	    var visa = /^4[0-9]{6,}$/;
-    	var mastercard = /^5[1-5][0-9]{5,}|222[1-9][0-9]{3,}|22[3-9][0-9]{4,}|2[3-6][0-9]{5,}|27[01][0-9]{4,}|2720[0-9]{3,}$/;
-    	var amex = /^3[47][0-9]{5,}$/;
-    	var discover = /^6(?:011|5[0-9]{2})[0-9]{3,}$/;
+        var visa = /^4[0-9]{12}(?:[0-9]{3})?$/;
+        var mastercard = /^(?:5[1-5][0-9]\d{1}|222[1-9]|2[3-6][0-9]\d{1}|27[01][0-9]|2‌​720)([\ \-]?)\d{4}\1\d{4}\1\d{4}$/;
+        var amex = /^3[47][0-9]{13}$/;
+        var discover = /^65[4-9][0-9]{13}|64[4-9][0-9]{13}|6011[0-9]{12}|(622(?:12[6-9]|1[3-9][0-9]|[2-8][0-9][0-9]|9[01][0-9]|92[0-5])[0-9]{10})$/;
 
-    	var cardnumber = cardnumber.replace(/\s/g, "");
+        var cardnumber = cardnumber.replace(/\s/g, "");
 
-    	if (visa.test(cardnumber)) {
-    		return "visa";
-    	}
-    	if (mastercard.test(cardnumber)) {
-    		return "mastercard";
-    	}
-    	if (amex.test(cardnumber)) {
-    		return "amex";
-    	}
-    	if (discover.test(cardnumber)) {
-    		return "discover";
-    	}
+        if (visa.test(cardnumber)) {
+            return "visa";
+        } else if (mastercard.test(cardnumber)) {
+            return "mastercard";
+        } else if (amex.test(cardnumber)) {
+            return "amex";
+        } else if (discover.test(cardnumber)) {
+            return "discover";
+        } else {
+            return "other"
+        }
     }
 
 });
