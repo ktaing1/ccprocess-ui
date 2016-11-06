@@ -38,15 +38,36 @@ $(document).ready(function() {
 
         //gather missing fields and display them in the alert.
         if (missing.length > 0) {
-            $(".alert p").text("The following fields are required: ")
+            if (missing.length == 1) {
+                $(".alert p").text("The following field is required: ")    
+            } else {
+                $(".alert p").text("The following fields are required: ")
+            }
+            
             for (x in missing) {
                 if (missing[x] == missing[missing.length - 1]) {
-                    $(".alert p").append("and " + missing[x] + ".");
+                    if (missing.length == 1) {
+                        $(".alert p").append("<b>" + missing[x] + "</b>.");    
+                    } else {
+                        $(".alert p").append("and <b>" + missing[x] + "</b>.");
+                    }
+                    
                 } else {
-                    $(".alert p").append(missing[x] + ", ");
+                    if (missing.length == 2 && x == 1) {
+                        $(".alert p").append("<b>" + missing[x] + "</b>, ");
+                    } else {
+                        $(".alert p").append("<b>" + missing[x] + "</b> ");
+                    }
+                    
+
                 }
             }
-            $(".alert p").append(" Please fill in the missing fields and re-submit your order.")
+            if (missing.length == 1 ) {
+                $(".alert p").append(" Please fill in the missing field and re-submit your order.")    
+            } else {
+                $(".alert p").append(" Please fill in the missing fields and re-submit your order.")
+            }
+            
 
         } else {
             $(".modal .alert").fadeOut();

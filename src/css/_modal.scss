@@ -1,3 +1,25 @@
+//////
+/// Modal
+/// * Relies on modal.js for functionality.
+/// * Usage:
+/// <a data-toggle="modal" data-target="#myModal" href="#">Show</a>
+/// <div class="modal" id="myModal" role="dialog">
+///     <div class="modal-dialog">
+///         <header>
+///             <h1>My Modal!</h1>
+///         </header>
+///         <main>
+///             <p>Hello beautiful world!</p>
+///         </main>
+///         <footer>
+///             <div class="button-actions">
+///                 <a href="#" class="btn btn-primary">Done</a>
+///             </div>
+///         </footer>
+///     </div>
+/// </div>
+//////
+
 .modal {
     display: none;
     position: fixed;
@@ -25,6 +47,12 @@
     header {
         max-width: 600px;
         height: 50px;
+        @include bp-xs {
+            height:35px;
+            h4 {
+                font-size:12px;
+            }
+        }
         .title,
         .close {
             display: inline-block;
@@ -53,15 +81,6 @@
         .button-actions {
             width: 100%;
             text-align: right;
-        }
-    }
-    @include bp-sm {
-        main .alert {
-            .icon,
-            .description {
-                width: 100%;
-                text-align: center;
-            }
         }
     }
 }

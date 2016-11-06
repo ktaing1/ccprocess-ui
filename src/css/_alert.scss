@@ -1,8 +1,7 @@
 .alert {
     display: none;
-
     margin: 0 20px 20px 20px;
-    border-radius:5px;
+    border-radius: 5px;
     span,
     p {
         display: inline-block;
@@ -15,7 +14,7 @@
     }
     .description {
         width: 80%;
-        font-size:13px;
+        font-size: 13px;
     }
     &.danger {
         background: lighten($error, 25%);
@@ -25,12 +24,13 @@
             color: $destroy;
         }
     }
-}
-
-@include bp-xs {
-    .alert span, .alert p {
-        display:block;
-        width:100%;
-        text-align: center;
+    @include bp-xs {
+        .icon {
+            font-size: 30px;
+            width: 30px;
+        }
+        .description {
+            width: 75%;
+        }
     }
 }

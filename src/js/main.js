@@ -8,19 +8,28 @@ $(document).ready(function() {
      ** and now the input has changed, remove the
      ** error underline state.
      **/
-    $("input").live("focus focusout", function() {
+    $("input, select").live("focus focusout", function() {
         $("label").each(function() {
             var $input = $(this).next();
             if (($input.val() == "")) {
                 $(this).removeClass("focused");
             }
         });
+
         var $label = $(this).prev();
         if (!($label.hasClass("focused"))) {
             $label.addClass("focused");
         }
+
         if ($(this).hasClass("error") && $(this).val() !== "") {
             $(this).removeClass("error");
+        }
+    });
+
+    $("input, select").live("focusout", function(){
+        var $label = $(this).prev();
+        if ($(this).val() == "" && $label.hasClass("focused")) {
+            $label.removeClass("focused");
         }
     });
 
@@ -43,7 +52,7 @@ $(document).ready(function() {
 
     $("input#expiration").keydown(function(e) {
         var v = $(this).val();
-        if (v.match(/^\d{2}$/) !== null) {
+        if (v.match(/^\d{2}$/) !== null && e.keyCode !== 8) {
             $(this).val(v + '/');
         }
     });
