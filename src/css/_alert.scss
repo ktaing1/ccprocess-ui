@@ -1,0 +1,26 @@
+.alert {
+    display: none;
+    margin: 0 20px 20px 20px;
+    border-radius:5px;
+    span,
+    p {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .icon {
+        padding-left: 10px;
+        font-size: 60px;
+        width: 70px;
+    }
+    .description {
+        width: 80%;
+    }
+    &.danger {
+        background: lighten($error, 25%);
+        border: 1px solid $destroy;
+        color: $destroy;
+        .icon {
+            color: $destroy;
+        }
+    }
+}

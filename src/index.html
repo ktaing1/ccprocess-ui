@@ -12,7 +12,7 @@
         <div class="modal-dialog">
             <header>
                 <div class="title">
-                    <h4>Enter Credit Card Information</h4>
+                    <h4>Enter Payment Information</h4>
                 </div>
                 <div class="close">
                     <a href="#" class="close">&times;</a>
@@ -25,6 +25,7 @@
                 </div>
                 <form>
                     <div class="left">
+                        <h5>Credit/Debit Card Information</h5>
                         <div class="group">
                             <label for="name">Card Holder Name</label>
                             <input class="required" type="text" id="name" />
@@ -35,7 +36,7 @@
                             <div class="creditcard"></div>
                         </div>
                         <div class="group">
-                            <label for="expiration">Expiration</label>
+                            <label for="expiration">Expiration (MM/YYYY)</label>
                             <input class="required" type="text" id="expiration" maxlength="7" />
                         </div>
                         <div class="group">
@@ -44,6 +45,7 @@
                         </div>
                     </div>
                     <div class="right">
+                        <h5>Enter Billing Information</h5>
                         <div class="group">
                             <label for="address">Address</label>
                             <input class="required" type="text" id="address" />
@@ -70,7 +72,6 @@
             </main>
             <footer>
                 <div class="button-actions">
-                    <a href="#" class="btn btn-destroy close">Cancel</a>
                     <a href="#" class="btn btn-primary save">Save</a>
                 </div>
             </footer>
