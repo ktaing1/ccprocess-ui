@@ -1,5 +1,6 @@
 .alert {
     display: none;
+
     margin: 0 20px 20px 20px;
     border-radius:5px;
     span,
@@ -9,11 +10,12 @@
     }
     .icon {
         padding-left: 10px;
-        font-size: 60px;
+        font-size: 45px;
         width: 70px;
     }
     .description {
         width: 80%;
+        font-size:13px;
     }
     &.danger {
         background: lighten($error, 25%);
@@ -22,5 +24,13 @@
         .icon {
             color: $destroy;
         }
+    }
+}
+
+@include bp-xs {
+    .alert span, .alert p {
+        display:block;
+        width:100%;
+        text-align: center;
     }
 }

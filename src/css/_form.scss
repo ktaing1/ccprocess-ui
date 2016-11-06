@@ -1,11 +1,14 @@
 $form-input-underline: 1px solid;
 form {
-    .left,
-    .right {
-        width: 47%;
-        vertical-align: top;
-        display: inline-block;
-        padding: 1%;
+    section {
+    	width:50%;
+    	margin: 0 auto;
+    	@include bp-sm {
+    		width:100%;
+    	}
+    	@include bp-xs {
+    		width:100%;
+    	}
     }
     .group {
         min-height: 35px;

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credit Card Processing Modal</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
@@ -24,7 +25,7 @@
                     <p class="description">Error!</p>
                 </div>
                 <form>
-                    <div class="left">
+                    <section>
                         <h5>Credit/Debit Card Information</h5>
                         <div class="group">
                             <label for="name">Card Holder Name</label>
@@ -43,8 +44,8 @@
                             <label for="security">Security Code</label>
                             <input class="required" type="text" id="security" />
                         </div>
-                    </div>
-                    <div class="right">
+                    </section>
+                    <section>
                         <h5>Enter Billing Information</h5>
                         <div class="group">
                             <label for="address">Address</label>
@@ -67,12 +68,12 @@
                             <label for="country">Country</label>
                             <input class="required" type="text" id="country" />
                         </div>
-                    </div>
+                    </section>
                 </form>
             </main>
             <footer>
                 <div class="button-actions">
-                    <a href="#" class="btn btn-primary save">Save</a>
+                <a href="#" class="btn btn-success save">&#10003; Complete Transaction</a>
                 </div>
             </footer>
         </div>
