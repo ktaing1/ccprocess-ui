@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var savedModal;
     var currentModal;
 
     /**
@@ -8,14 +9,26 @@ $(document).ready(function() {
     $("*[data-toggle='modal']").live("click", function() {
         var targetModal = $(this).attr("data-target");
         currentModal = targetModal;
-        $(targetModal).fadeIn();
+        if ($(targetModal).length == 0) {
+            $(".modal-wrapper").append(savedModal);
+            $(targetModal).fadeIn();
+            // $(targetModal).css("opacity", "1");
+        } else {
+            savedModal = $(targetModal).wrap("<div/>").parent().addClass("modal-wrapper").html();
+            $(targetModal).fadeIn();
+        }
+        
+        
     });
 
     /**
      ** hook into, and close the current modal that is open. 
      **/
     $(".modal .close").live("click", function() {
-        $(currentModal).fadeOut();
+        $(currentModal).fadeOut(function(){
+            $(currentModal).remove();
+        });
+        
     });
 
     /**
@@ -75,7 +88,7 @@ $(document).ready(function() {
             $(".modal").fadeOut();
             $(".modal form input").each(function() {
                 console.log($(this).attr("id") + ": " + $(this).val());
-            })
+            });
         }
 
     });
