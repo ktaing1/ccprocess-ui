@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" href="#">Check Out</a>
-    <div class="modal" id="myModal" role="dialog">
+    <a class="btn btn-primary" data-toggle="modal" data-target="#payment-modal" href="#">Check Out</a>
+    <div class="modal" id="payment-modal" role="dialog">
         <div class="modal-dialog">
             <header>
                 <div class="title">
@@ -29,36 +29,36 @@
                         <h5>Credit/Debit Card Information</h5>
                         <div class="group">
                             <label for="name">Card Holder Name</label>
-                            <input class="required" type="text" id="name" />
+                            <input class="required" name="name" type="text" id="name" />
                         </div>
                         <div class="group">
                             <label for="ccnumber">Card Number</label>
-                            <input class="required" type="text" id="ccnumber" />
+                            <input class="required" name="ccnumber" type="text" id="ccnumber" />
                             <div class="creditcard"></div>
                         </div>
                         <div class="group">
                             <label for="expiration">Expiration (MM/YYYY)</label>
-                            <input class="required" type="text" id="expiration" maxlength="7" />
+                            <input class="required" name="expiration" type="text" id="expiration" maxlength="7" />
                         </div>
                         <div class="group">
                             <label for="security">Security Code</label>
-                            <input class="required" type="text" id="security" maxlength="4" />
+                            <input class="required" name="security" type="text" id="security" maxlength="4" />
                         </div>
                     </section>
                     <section>
                         <h5>Enter Billing Information</h5>
                         <div class="group">
                             <label for="address">Address</label>
-                            <input class="required" type="text" id="address" />
+                            <input class="required" name="address" type="text" id="address" />
                             <input type="text" id="address2" />
                         </div>
                         <div class="group">
                             <label for="city">City</label>
-                            <input class="required" type="text" id="city" />
+                            <input class="required" name="city" type="text" id="city" />
                         </div>
                         <div class="group">
                             <label for="state">State</label>
-                            <select class="required">
+                            <select name="state" class="required">
                                 <option value="">&nbsp;</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -115,11 +115,11 @@
                         </div>
                         <div class="group">
                             <label for="zip">ZIP/Postal Code</label>
-                            <input class="required" type="text" id="zip" />
+                            <input class="required" name="zip" type="text" id="zip" />
                         </div>
                         <div class="group">
                             <label for="country">Country</label>
-                            <select class="required">
+                            <select name="country" class="required">
                                 <option value="">&nbsp;</option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AX">Åland Islands</option>

@@ -54,9 +54,10 @@ $(document).ready(function() {
                     
                 } else {
                     if (missing.length == 2 && x == 1) {
-                        $(".alert p").append("<b>" + missing[x] + "</b>, ");
-                    } else {
                         $(".alert p").append("<b>" + missing[x] + "</b> ");
+                    } else {
+                        $(".alert p").append("<b>" + missing[x] + "</b>, ");
+                        
                     }
                     
 
@@ -71,6 +72,7 @@ $(document).ready(function() {
 
         } else {
             $(".modal .alert").fadeOut();
+            $(".modal").fadeOut();
             $(".modal form input").each(function() {
                 console.log($(this).attr("id") + ": " + $(this).val());
             })

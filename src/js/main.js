@@ -38,7 +38,7 @@ $(document).ready(function() {
      ** determine credit card type, then show
      ** that credit card image.
      **/
-    $("input#ccnumber").keydown(function(e) {
+    $("input#ccnumber").keyup(function(e) {
         var cardnumber = $(this).val();
         if ((cardnumber.replace(/\s/g, "").length % 4 == 0) && cardnumber.replace(/\s/g, "").length > 1 && (e.keyCode !== 8)) {
             $(this).val($(this).val() + " ");

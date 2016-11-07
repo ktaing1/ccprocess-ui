@@ -14,6 +14,7 @@ form {
         min-height: 35px;
         padding-bottom: 10px;
         label {
+            z-index: 1;
             margin-bottom: 5px;
             display: block;
             text-transform: uppercase;
@@ -75,6 +76,7 @@ form {
         }
         input,
         select {
+            z-index: 99;
             background: transparent;
             width: 100%;
             display: block;
@@ -93,6 +95,19 @@ form {
                 border-bottom: $form-input-underline;
                 border-bottom-color: $form-underline;
             }
+        }
+        select {
+            background: transparent url(https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png) no-repeat;
+            background-size: 20px;
+            background-position: right 10px center;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            width: 100%;
+            height: 25px;
+            margin: 8px 0;
         }
     }
 }
