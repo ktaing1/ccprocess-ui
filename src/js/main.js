@@ -40,7 +40,8 @@ $(document).ready(function() {
      **/
     $("input#ccnumber").keyup(function(e) {
         var cardnumber = $(this).val();
-        if ((cardnumber.replace(/\s/g, "").length % 4 == 0) && cardnumber.replace(/\s/g, "").length > 1 && (e.keyCode !== 8)) {
+        var lastcharSpace = cardnumber.substr(cardnumber.length - 1) == " ";
+        if ((cardnumber.replace(/\s/g, "").length % 4 == 0) && !lastcharSpace && cardnumber.replace(/\s/g, "").length > 1 && (e.keyCode !== 8) && (e.which !== 17)) {
             $(this).val($(this).val() + " ");
         }
         $(".creditcard").removeClass("visa");
