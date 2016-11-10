@@ -10,9 +10,11 @@ $(document).ready(function() {
         var targetModal = $(this).attr("data-target");
         currentModal = targetModal;
         if ($(targetModal).length == 0) {
+            if ($(".modal-wrapper").length == 0) {
+                $("body").append("<div class='modal-wrapper'></div>");
+            }
             $(".modal-wrapper").append(savedModal);
             $(targetModal).fadeIn();
-            // $(targetModal).css("opacity", "1");
         } else {
             savedModal = $(targetModal).wrap("<div/>").parent().addClass("modal-wrapper").html();
             $(targetModal).fadeIn();
@@ -85,7 +87,9 @@ $(document).ready(function() {
 
         } else {
             $(".modal .alert").fadeOut();
-            $(".modal").fadeOut();
+            $(".modal").fadeOut(function(){
+                $(currentModal).remove();
+            });
             $(".modal form input").each(function() {
                 console.log($(this).attr("id") + ": " + $(this).val());
             });
