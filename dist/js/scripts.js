@@ -36,11 +36,22 @@ $(document).ready(function() {
 
         var $label = $(this).prev();
         if (!($label.hasClass("focused"))) {
-            $label.addClass("focused");
+            if (!($(this).is("select"))) {
+                $label.addClass("focused");
+            }
         }
 
         if ($(this).hasClass("error") && $(this).val() !== "") {
             $(this).removeClass("error");
+        }
+    });
+
+    $("select").live("change", function(){
+        console.log($(this).val());
+        if (!($(this).val() == "")) {
+            $(this).prev().addClass("focused");
+        } else {
+            $(this).prev().removeClass("focused");
         }
     });
 
