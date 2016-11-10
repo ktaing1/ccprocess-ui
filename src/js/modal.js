@@ -19,8 +19,13 @@ $(document).ready(function() {
             savedModal = $(targetModal).wrap("<div/>").parent().addClass("modal-wrapper").html();
             $(targetModal).fadeIn();
         }
-        
-        
+    });
+
+
+    $("body").live("keyup", function(e){
+        if (e.which == 27) {
+            $(".modal .close").click();
+        }
     });
 
     /**
