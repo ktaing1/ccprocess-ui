@@ -10,5 +10,6 @@ This is a custom, responsive modal for a checkout process.
 * `npm install`
 * `npm install -g gulp` (If not already globally installed.)
 * `gulp` to run the project. 
+* project runs on `localhost:3000`
 
 
