@@ -74,25 +74,31 @@ form section {
 
 form .group {
   min-height: 35px;
-  padding-bottom: 10px; }
+  padding-bottom: 10px; 
+  border: 1px solid #898989;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;}
   form .group label {
     z-index: 1;
     margin-bottom: 5px;
     display: block;
     text-transform: uppercase;
-    font-size: 14px;
     height: 18px;
     margin-top: 2px;
     margin-left: 1px;
     position: absolute;
     color: #95a5a6;
+    padding: 7px 0;
     transition: margin 500ms ease;
     transition: font-size 500ms ease; }
     form .group label.focused {
       color: #000000;
       font-size: 10px;
       margin-top: -10px;
-      position: relative; }
+      position: relative;
+      margin-bottom: 0px;
+      padding-bottom: 0px; }
   form .group .creditcard {
     height: 30px;
     width: 55px;
@@ -136,20 +142,19 @@ form .group {
     width: 100%;
     display: block;
     border: none;
-    margin-bottom: 10px;
     font-size: 14px;
     outline: none;
-    border-bottom: 1px solid;
     border-bottom-color: #7f8c8d;
     transition: border 500ms ease; }
     form .group input.error,
     form .group select.error {
       border-bottom: 1px solid;
       border-bottom-color: #c0392b; }
-    form .group input:focus,
+/*    form .group input:focus,
     form .group select:focus {
       border-bottom: 1px solid;
       border-bottom-color: #3498db; }
+      */
   form .group select {
     background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAPFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQLyYwAAAAE3RSTlMADQ46Ozw9SElKS0y5x+zz9Pj5WslQRAAAAQdJREFUeJztzlcOwkAQBFFyxjbM/e9KFsbrNGK3V6Cq/1a/yYSIiIiIiIiIiIiIfqRp8kF/q2LtG+yLedT/yk4uwf5sZUTBsjJzCa7/FlFw//cI7v/xBMvSzCV4/scSLF7/ZueN6z+OoPY/TlD7jyI4mLkEH/9mh68Bs6NL0Pg/zr4G+AQJ/l2CJP8OQaL/ULAV/48UJPwfJUj6P0KQ+H9QkPx/QCD4DwU78X+PQPTfKZD9dwiE/60C6X+LQPwfCtT/gUD+3yfQ/HcLVP9dAt1/u0D53ybQ/ocC9X9ToP//FOT4rwvy/L8Fuf5fgnz/D0HO/5sg7/9VkPmfiIiIiIiIiIiIiP6gC0vzP5P1npi3AAAAAElFTkSuQmCC") no-repeat;
     background-size: 20px;
