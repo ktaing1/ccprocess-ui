@@ -2,6 +2,7 @@
 
 This is a custom, responsive modal for a checkout process. 
 
+[Live Preview](https://ktaing1.github.io/ccprocess-ui/dist) (https://ktaing1.github.io/ccprocess-ui/dist)
 [Live Preview](https://jchaike.github.io/ccprocess-ui/dist) (https://jchaike.github.io/ccprocess-ui/dist)
 
 ## Project Setup
